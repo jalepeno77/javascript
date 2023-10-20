@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/overflowScrolls.js" defer></script>
+  <style>
+    #wrapper {
+      border: 10px solid #333;
+      width: 400px;
+    }
+
+    #info {
+      height: 600px;
+      overflow: auto;
+      padding: 1rem;
+    }
+
+    button {
+      background-color: green;
+      border: none;
+      cursor: pointer;
+      padding: .5rem;
+      width: 100%;
+    }
+
+    button:disabled {
+      background-color: rgba(255, 0, 0, .5);
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <h1>Demo</h1>
+  <!-- div#wrapper>(section#info>p*10>lorem)+button{close} -->
+  <div id="wrapper">
+    <section id="info">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rem dolorum perspiciatis repellat ipsum voluptatum, ratione nesciunt sapiente, corrupti, eligendi natus quasi. Itaque exercitationem delectus voluptate, molestias aliquam obcaecati magni?</p>
+      <p>Nobis porro optio perspiciatis dolorum necessitatibus consequatur cum expedita eum, excepturi dolorem deleniti doloremque quis harum! Similique debitis ratione iusto officia sapiente commodi velit vero corrupti. Molestiae tenetur necessitatibus vero.</p>
+      <p>Similique nobis optio facilis id hic, porro delectus, repellat error laborum sint quia minima tempora voluptates excepturi doloribus iure voluptatem. Dolor, beatae ab quod nemo laboriosam nesciunt velit exercitationem vero!</p>
+      <p>Officiis quos vero alias voluptate ipsum aspernatur repellat quo autem expedita ipsa nobis amet vitae hic natus quae nulla ratione saepe dolorum, et reiciendis quod ab magni totam sint? Expedita!</p>
+      <p>Obcaecati ipsum fugit laudantium cumque temporibus accusantium, minus consequuntur, perspiciatis magni eligendi nisi! Veritatis dicta maiores fugiat sit optio corporis hic velit rem impedit nam. Dignissimos eius magni voluptatem ad.</p>
+      <p>Repudiandae hic illum sequi alias, quibusdam quod adipisci, maxime aliquam dolorum ipsam voluptatibus? Necessitatibus odio laboriosam doloribus ipsam expedita? Qui et, pariatur aliquid ipsum aperiam neque quam possimus recusandae iure?</p>
+      <p>Eveniet explicabo reiciendis beatae dicta velit saepe rem sequi iure. Deleniti quia laboriosam odio, soluta, iste nobis iusto corporis placeat qui libero cumque atque dignissimos ab temporibus laborum fugiat voluptatum.</p>
+      <p>Laborum sunt nesciunt nisi mollitia? Fugiat accusantium, odio minus quasi, laborum sunt ab sapiente sit doloribus inventore officia, in tempora amet. Atque et veniam pariatur, quae debitis hic distinctio aperiam!</p>
+      <p>Soluta placeat non consequuntur eligendi optio aliquid vel rem quam, minima vero laudantium quos sapiente est itaque dolores aspernatur incidunt! Atque debitis, totam rem neque distinctio ducimus dolorum quisquam nisi.</p>
+      <p>Veritatis consequuntur incidunt voluptate est quae voluptates odio, molestias nostrum tempore. Soluta nihil ipsam, tempore ipsa odio nam optio autem at repellendus vero debitis dolor sint cupiditate obcaecati molestias adipisci!</p>
+      <div id="theEnd"></div>
+    </section>
+    <button disabled>close</button>
+  </div>
+  
+</body>
+</html>
