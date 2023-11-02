@@ -117,6 +117,7 @@ stopBtn.disabled = true;
 
 stopBtn.addEventListener('click', winner);
 startBtn.addEventListener('click', tooSlow);
+startBtn.addEventListener('click', counter);
 
 /**
  * 
@@ -129,7 +130,6 @@ function winner(e){
   } else {
     e.preventDefault();
     clearTimeout(timer);
-    timer = null;
     let fname = inputTxt.value;
     result.style.display = 'block';
     e.target.defaultValue = 'Play Again';
@@ -162,3 +162,20 @@ function tooSlow(e) {
     form.appendChild(result);
   }, 5000);
 };
+
+/** make a countdown timer */
+let count = 5;
+let counterDisplay = document.createElement('p');
+const timerCountdown = setInterval(counter, 1000);
+function counter() { 
+  count--;
+  counterDisplay.innerHTML = `countdown: ${count}`;
+  result.appendChild(counterDisplay);
+  result.style.display = 'block';
+  console.log(count); 
+  if (count === 0) {clearInterval(timer); 
+  console.log("Time's up!");
+  clearInterval(timerCountdown);
+  counterDisplay.innerHTML = `Time's up!`; 
+}
+}

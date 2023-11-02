@@ -48,3 +48,19 @@ function handleForm(e) {
     premium.style.display = 'none';
   }
 };
+
+/** make a countdown timer */
+let count = 60;
+const timer = setInterval(counter, 100);
+function counter() { 
+  count--;
+  console.log(count); 
+  if (count === 0) {clearInterval(timer); 
+  console.log("Time's up!"); } 
+}
+
+timer();
+
+
+
+
