@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 /**********************
  *********************
 NOTE: In my comments, I've referred to functions with their parenthesis. Example: someFunction()
@@ -25,7 +25,7 @@ setTimeout(showPickerMenu, 5000);
 
 
 function showPickerMenu() {
-  picker.style.display = 'block' ;
+  picker.style.display = 'block';
 }
 // setAttribute('dataset', 'stylesheet');
 // LISTEN FOR BUTTON CLICKS
@@ -35,34 +35,37 @@ function showPickerMenu() {
     The click listener should call handleOptions(), passing it the clicked button element
 */
 let buttons = document.querySelectorAll('button');
-// console.log(buttons[4]);
-buttons.forEach(function (e) {
-  e.addEventListener('click', handleOptions);
-});
+buttons.forEach((button) => button.addEventListener('click', function() {
+  handleOptions(button);
+}));
 
 
 // HANDLE OPTIONS
+/**
+ * 
+ * @param {element} el the element passed from the button event listener
+ */
 function handleOptions(el) {
   /*
   - Switch with 4 cases plus a default
       For each case, call loadStyles, passing it the stylesheet name (minus the file extension), the button element itself, and a text string for page display. HINT: You can tell which button was clicked by it's ID.
   - If no theme button is clicked (I like the current theme), close the picker via CSS display property
   */
-  switch (el.target.id) {
+  switch (el.id) {
     case buttons[0].id:
-      loadStyles(buttons[0].innerText, el, buttons[0].innerText);
+      loadStyles('default', el, buttons[0].innerText);
       break;
     case buttons[1].id:
-      loadStyles(buttons[1].innerText, el, buttons[1].innerText);
+      loadStyles('grayscale', el, buttons[1].innerText);
+      break;
+    case buttons[2].id:
+      loadStyles('high-contrast', el, buttons[2].innerText);
       break;
     case buttons[3].id:
-      loadStyles(buttons[3].innerText, el, buttons[3].innerText);
-      break;
-    case buttons[4].id:
-      picker.style.display = 'none';
+      loadStyles('clown', el, buttons[3].innerText);
       break;
     default:
-      loadStyles('high-contrast', el, buttons[2].innerText);
+      picker.style.display = 'none';
       break;
   }
 }
@@ -70,6 +73,12 @@ function handleOptions(el) {
 // LOAD STYLES
 const styleLink = document.querySelector('link[rel="stylesheet"]');
 
+/**
+ * 
+ * @param {string} sheet string passed from handleOptions() to determine which stylesheet to load
+ * @param {element} btn the element passed from handleOptions() to determine which button was clicked
+ * @param {string} str the string passed from handleOptions() to determine which text to display on the page
+ */
 function loadStyles(sheet, btn, str) {
   /*
   - Loop through the buttons, setting each one to enabled. 
@@ -81,11 +90,11 @@ function loadStyles(sheet, btn, str) {
   - Set the clicked button (passed to function) to disabled
   - Hide the picker box via CSS display property
   */
-  buttons.forEach((button) => button.disabled = false)
-  styleLink.setAttribute('href', `/css/theme-${sheet}.css`);
+  buttons.forEach((button) => button.disabled = false);
+  styleLink.setAttribute('href', `css/theme-${sheet}.css`);
   theme.textContent = str;
-  btn.target.setAttribute('disabled', 'true');
-  picker.style.display = 'none'
+  btn.setAttribute('disabled', 'true');
+  picker.style.display = 'none';
   ;
 }
 
@@ -103,6 +112,10 @@ function loadStyles(sheet, btn, str) {
 let morphBox = document.querySelector('#morph');
 let morphID;
 morphBox.addEventListener('click', () => morph(morphBox));
+/**
+ * 
+ * @param {element} morphBox the element passed from the morphBox event listener
+ */
 function morph(morphBox) {
   /* 
   - If the box is checked:
